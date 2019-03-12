@@ -59,7 +59,73 @@ editor.ui.componentFactory.add(DRIVE, locale => {
 	* For google drive integration we follow below steps:
 	
 		* Load Google client and get auth token
+			```js
+			gapi.auth2.init({
+				client_id: options.Editor.config.get('clientId'),
+				scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly',
+				discoveryDocs: 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
+				fetch_basic_profile: false
+			}).then(
+				function (response) {
+					//console.log(response);
+					response.signIn()
+						.then(function (response) {
+							auth = gapi.client.getToken();
+							loadPicker();
+						});
+				},
+				function (response) {
+					//console.log("Error");
+					console.log(response);
+				});
+			```
 		* Open Google doc selecter window
+			```js
+			gapi.client.load('https://www.googleapis.com/discovery/v1/apis/drive/v3/rest');
+			var pickerView = new google.picker.View(google.picker.ViewId.DOCUMENTS);
+
+			pickerView.setMimeTypes(options.Editor.config.get('gdAllowedMimeTypes'));
+
+			var pickerBuilder = new google.picker.PickerBuilder().
+			addView(pickerView).
+			setOAuthToken(auth.access_token).
+			setOrigin(window.location.origin).
+			setRelayUrl(window.location.origin).
+			enableFeature(google.picker.Feature.NAV_HIDDEN).
+			setCallback(pickerCallback);
+
+			pickerBuilder.setSelectableMimeTypes(options.Editor.config.get('gdAllowedMimeTypes'));
+
+			options.Editor.picker = pickerBuilder.build();
+			options.Editor.picker.setVisible(true);
+			```
 		* Import the document
+			```js
+			gapi.client.drive.files.export({
+				fileId: fileId,
+				mimeType: 'text/html'
+			}).then(
+				function (response) {
+					if (deleteAfter) {
+						gdocDelete(fileId);
+					}
+
+					var rawHtml = contentFilter(response.body);
+					if (rawHtml != false)
+						options.Editor.setData(rawHtml);
+				},
+				//Failure to load file
+				function (response) {
+					if (deleteAfter) {
+						gdocDelete(fileId);
+					}
+					cleanup({
+						content: null,
+						success: false,
+						code: response.status
+					});
+				}
+			);
+			```
 		* Remove unsupported tags from the document
 		* Set the data into Editor

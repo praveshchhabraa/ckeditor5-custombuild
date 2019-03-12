@@ -127,5 +127,40 @@ editor.ui.componentFactory.add(DRIVE, locale => {
 				}
 			);
 			```
-		* Remove unsupported tags from the document
-		* Set the data into Editor
+		* Remove unsupported tags from the document and Set the data into Editor
+			```js
+			//create a jquery object to hold the data
+			var $data = $(htmlData).wrapAll('<div />').first().parent();
+			//Remove Comments
+			$data.find('a[id*="cmnt"]').closest('div').remove();
+
+			var l = $(htmlData).find(':not(' + options.Editor.config.get('gdAllowedHtmlTags') + ')').length;
+			$data.find(':not(' + options.Editor.config.get('gdAllowedHtmlTags') + ')').remove();
+
+			//wrap italics, underline, and bold text with relevant stylings.
+			//Google uses inline styling font-weight:700 -> b, font-style:italics -> i, text-decoration:underline -> u
+			//Internet explorer injects a space after the : so we have to search both with and without it.
+			$data.find('[style*="font-weight:700"],[style*="font-weight: 700"]').wrap('<b />')
+				//Remove styling to prevent duplicate <strong> tags in ckeditor.
+				.attr('style', function (i, style) {
+					return style.replace(/font-weight:.?700/g, '');
+				});
+			$data.find('[style*="font-style:italic"],[style*="font-style: italic"]').wrap('<i />')
+				.attr('style', function (i, style) {
+					return style.replace(/font-style:.?italic/g, '');
+				});
+			$data.find('[style*="text-decoration:underline"],[style*="text-decoration: underline"]').wrap('<u />')
+				.attr('style', function (i, style) {
+					return style.replace(/text-decoration:.?underline/g, '');
+				});
+
+			if (l > 0) {
+				let result = confirm("Not all file content supported! \n Some items used in your document (such as tables, images, advanced formatting) are not supported here. Remove that formatting during the copy?");
+				if (result)
+					options.Editor.setData($data.html());
+			} else if ($data.text() === '') {
+				alert("No text found");
+			} else {
+				options.Editor.setData($data.html());
+			}
+			```

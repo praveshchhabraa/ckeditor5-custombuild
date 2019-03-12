@@ -1,0 +1,1 @@
+(function(d){d['eu']=Object.assign(d['eu']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"Azpimarra",f:"Lodia",g:"Etzana",h:"Testu aberastuaren editorea",i:"Testu aberastuaren editorea, %0",j:"Desegin",k:"Berregin"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

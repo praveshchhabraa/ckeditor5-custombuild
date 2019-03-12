@@ -1,0 +1,1 @@
+(function(d){d['pl']=Object.assign(d['pl']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"Podkreślenie",f:"Pogrubienie",g:"Kursywa",h:"Edytor tekstu RTF",i:"Edytor tekstu RTF, %0",j:"Cofnij",k:"Ponów"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

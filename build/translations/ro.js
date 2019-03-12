@@ -1,0 +1,1 @@
+(function(d){d['ro']=Object.assign(d['ro']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"Subliniat",f:"Îngroșat",g:"Oblic",h:"Editor de text îmbunătățit",i:"Editor de text îmbunătățit, %0",j:"Anulează",k:"Revenire"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

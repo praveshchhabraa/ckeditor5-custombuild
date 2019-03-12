@@ -1,0 +1,1 @@
+(function(d){d['ug']=Object.assign(d['ug']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"ئاستى سىزىق",f:"توم",g:"يانتۇ",h:"تېكىست تەھرىرلىگۈچ",i:"تېكىست تەھرىرلىگۈچ، 0%",j:"قالدۇرۇش",k:"قايتا قىلىش"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

@@ -1,0 +1,65 @@
+/*
+ * Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */
+
+@import "../../../node_modules/@ckeditor/ckeditor5-ui/theme/mixins/_unselectable.css";
+@import "../../../node_modules/@ckeditor/ckeditor5-ui/theme/components/tooltip/mixins/_tooltip.css";
+
+.ck-button__textview {
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
+	background-color: #82162e  !important;
+    border-color: transparent  !important;
+	color: #fff  !important;
+}
+
+.ck-button__right{
+	position: absolute !important;
+	right: 0.25rem;
+	padding-right: 10px !important;
+}
+
+.ck-button__right:hover{
+	background: none !important;
+}
+
+.ck-button__closeview {
+    padding-top: 5px  !important;
+    padding-bottom: 5px  !important;
+}
+
+.ck.ck-button,
+a.ck.ck-button {
+	@mixin ck-unselectable;
+	@mixin ck-tooltip_enabled;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: left;
+
+	&.ck-button_with-text {
+		& .ck-button__label {
+			display: inline-block;
+		}
+	}
+
+	/* Center the icon horizontally in a button without text. */
+	&:not(.ck-button_with-text)  {
+		justify-content: center;
+	}
+
+	&:hover {
+		@mixin ck-tooltip_visible;
+	}
+
+	/* Get rid of the native focus outline around the tooltip when focused (but not :hover). */
+	&:focus:not(:hover) {
+		@mixin ck-tooltip_disabled;
+	}
+
+	& .ck-button__label {
+		display: none;
+	}
+}
+

@@ -1,0 +1,1 @@
+(function(d){d['tr']=Object.assign(d['tr']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"Altı Çizgili",f:"Kalın",g:"İtalik",h:"Zengin İçerik Editörü",i:"Zengin İçerik Editörü, %0",j:"Geri al",k:"Tekrar yap"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

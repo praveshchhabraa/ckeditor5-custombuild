@@ -1,0 +1,295 @@
+/*
+ * Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */
+
+/*
+ Following customizations as per https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/ui/theme-customization.html
+*/
+
+:root {
+    /* Overrides the spacing standard setting in the theme. */
+    --ck-spacing-standard: 1.25rem;
+    --ck-spacing-large: 0.5rem;
+    --ck-color-base-active-focus: #0c9898;
+    --ck-color-base-focus: #434343;
+    --ck-color-focus-border: #434343;
+    --ck-color-focus-border: #434343;
+    --ck-focus-ring: 2px solid var(--ck-color-focus-border);
+    --ck-color-base-error: #E00029;
+    --ck-color-focus-shadow: rgba(0, 0, 0, 0);
+    /* disable shadow */
+    --ck-color-shadow-inner: rgba(0, 0, 0, 0);
+    --ck-inner-shadow: 0px inset;
+    --ck-color-base-border: #434343;
+    --ck-border-radius: 3px;
+    --ck-color-input-border: #434343;
+    --ck-color-tooltip-background: #434343;
+    --ck-color-toolbar-background: #ededed;
+    --ck-icon-size: 1.5rem !important;
+    --ck-color-text: #434343;
+    --ck-color-button-default-hover-background: #d3d3d3;
+    --ck-color-button-default-active-background: #d3d3d3;
+    --ck-color-button-default-active-shadow: transparent;
+    --ck-color-button-default-disabled-background: transparent;
+    --ck-color-button-on-background: #d3d3d3;
+    --ck-color-button-on-hover-background: #d3d3d3;
+    --ck-color-button-on-active-background: #d3d3d3;
+    --ck-color-button-on-active-shadow: transparent;
+    --ck-font-face: "Open Sans", Sans-Serif !important;
+    --ck-font-size-base: 16px !important;
+}
+
+.ck.ck-label {
+    font-weight: 400 !important;
+}
+
+/* -- Styles for top labels */
+
+.ck.ck-editor__top.ck-reset_all.ck-editor__toplabels {
+    background-color: white !important;
+    padding: 1.25rem 1.25rem 0.5rem 1.25rem !important;
+}
+
+.ck.ck-editor__top.ck-reset_all.ck-editor__toplabels label:not(:first) {
+    padding-top: 0.5rem !important;
+}
+
+.ck.ck-label.word-count-top,
+.ck.ck-label.word-min-max-top,
+.ck.ck-label.wordCount,
+.ck.ck-label.wordMinMax {
+    color: #757575 !important;
+    line-height: 1rem !important;
+    font-size: 0.75rem !important;
+}
+
+.ck.ck-button,
+a.ck.ck-button {
+    padding: 0.5rem !important;
+	border-radius: 1.25rem !important;
+	cursor: pointer !important;
+}
+
+.ck.ck-button,
+.ck.ck-button:hover,
+.ck.ck-button:active,
+.ck.ck-button:focus,
+a.ck.ck-button:active,
+a.ck.ck-button:focus {
+    border: 0 !important;
+}
+
+.ck.ck-button.ck-off.ck-button__right {
+    padding: 4px !important;
+	border-radius: 4px !important;
+
+}
+
+.ck-button__textview {
+	cursor: pointer !important;
+    border-radius: 4px!important;
+    height: 32px !important;
+	font-size: 0.875rem !important;
+	line-height: 32px !important;
+}
+
+.ck.ck-button:focus {
+    background-color: #d3d3d3 !important;
+}
+
+.ck.ck-toolbar>* {
+    margin: 0px !important;
+}
+
+.ck.ck-toolbar {
+    padding: 4px !important;
+}
+
+.ck.ck-tooltip .ck-tooltip__text {
+    font-size: .625rem !important;
+    line-height: 0.75rem !important;
+    font-weight: 600 !important;
+    color: var(--ck-color-tooltip-text) !important;
+    padding: 0.5rem !important;
+}
+
+.ck.ck-tooltip.ck-tooltip_s {
+    bottom: unset !important;
+    top: -68px !important;
+    /* not sure to calc this right */
+}
+
+.ck.ck-tooltip.ck-tooltip_s .ck-tooltip__text:after {
+    display: none;
+}
+
+.ck.ck-toolbar__separator {
+	background: transparent !important;
+}
+
+.ckeditorfullsize {
+    display: flex !important;
+    z-index: 999 !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    flex-direction: column;
+}
+
+.ckeditorfullsize .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
+.ckeditorfullsize .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+    resize: none !important;
+    flex-grow: 1;
+}
+
+.ckeditorfullsize .ck.ck-editor__main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+/*
+	Tablet Styles
+
+	*/
+
+@media screen and (min-width: 768px) {
+    .ckeditorfullsize {
+        border: rgba(67, 67, 67, .4) solid 2.5rem !important;
+    }
+    .ck.ck-toolbar__separator {
+        width: 1.25rem;
+    }
+}
+
+
+
+.ck.ck-editor {
+    /* All the elements within `.ck-editor` are positioned relatively to it.
+	 If any element needs to be positioned with respect to the <body>, etc.,
+	 it must land outside of the `.ck-editor` in DOM. */
+    position: relative;
+    & .ck-editor__top .ck-sticky-panel .ck-toolbar {
+        /* https://github.com/ckeditor/ckeditor5-editor-classic/issues/62 */
+        z-index: var(--ck-z-modal);
+    }
+}
+
+.ck.ck-editor__bottom {
+    border-radius: var(--ck-border-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: var(--ck-color-toolbar-background);
+    border-left: 1px solid var(--ck-color-toolbar-border);
+    border-right: 1px solid var(--ck-color-toolbar-border);
+    border-bottom: 1px solid var(--ck-color-toolbar-border);
+    position: static;
+    padding: 5px;
+}
+
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
+.ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+    /* border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;*/
+    min-height: 12rem;
+    height: 12em;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.ck.ck-label.wordCount,
+.ck.ck-label.errorword,
+.ck.ck-label.wordMinMax,
+.ck.ck-label.word-min-max-top,
+.ck.ck-label.word-count-top {
+    padding-top: 0.25rem;
+}
+
+.ck.ck-label.wordCount,
+.ck.ck-label.errorword,
+.ck.ck-label.wordMinMax{
+	display: inline-block;
+}
+
+.ck.ck-label.wordCount {
+    float: right;
+}
+
+.ck.ck-label.errorword {
+    color: #e00029;
+    max-width: 100% !important;
+}
+
+.ck.ck-label.errorword,
+.ck.ck-label.questiontext {
+    word-break: break-word !important;
+    white-space: normal !important;
+}
+
+.ck.ck-toolbar {
+    display: flow-root !important;
+    box-sizing: border-box !important;
+}
+
+.ck.ck-editor__editable_inline p,
+.ck.ck-editor__editable_inline>p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+
+.ck.ck-label.questiontext {
+	font-size:0.875rem !important;
+}
+
+.ck.ck-label.errorword {
+	font-size:0.75rem !important;
+}
+
+/*
+	Mobile Styles start
+	duplication of styles from ca-app
+*/
+
+@media screen and (max-width: 767px) {
+    :root {
+        /* Overrides the spacing standard setting in the theme. */
+        --ck-spacing-standard: 0.5rem;
+        --ck-spacing-large: 0.25rem;
+    }
+    .ck.ck-editor__top.ck-reset_all.ck-editor__toplabels {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+    }
+    .ck.ck-label.word-count-top,
+    .ck.ck-label.word-min-max-top {
+        width: 50%;
+    }
+    label.ck.ck-label.word-count-top {
+        text-align: right;
+    }
+    .ck.ck-label.errorword,
+    .ck.ck-label.questiontext {
+        flex-basis: 100%;
+	}
+
+    .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
+    .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+        min-height: 6.25rem;
+        height: 6.25rem;
+    }
+    .ck.ck-editor__toplabels {
+        padding: 1rem !important;
+    }
+}

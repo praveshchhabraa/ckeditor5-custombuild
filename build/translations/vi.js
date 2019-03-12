@@ -1,0 +1,1 @@
+(function(d){d['vi']=Object.assign(d['vi']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"Underline",f:"Bold",g:"Italic",h:"Rich Text Editor",i:"Rich Text Editor, %0",j:"Hoàn tác",k:"Tiếp tục"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

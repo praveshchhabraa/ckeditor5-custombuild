@@ -1,0 +1,1 @@
+(function(d){d['sq']=Object.assign(d['sq']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"Nënvizuar",f:"Trash",g:"Pjerrtë",h:"Redaktues i Tekstit të Pasur",i:"Redaktues i Tekstit të Pasur, %0",j:"Rikthe",k:"Ribëj"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

@@ -1,0 +1,1 @@
+(function(d){d['fa']=Object.assign(d['fa']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"خط زیر",f:"تو پر",g:"کج",h:"ویرایشگر متن غنی",i:"ویرایشگر متن غنی، %0",j:"بازگردانی",k:"باز انجام"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

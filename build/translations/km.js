@@ -1,0 +1,1 @@
+(function(d){d['km']=Object.assign(d['km']||{},{a:"Maximize",b:"Minimize",c:"Continue",d:"Upload from Google Drive",e:"គូស​បន្ទាត់​ក្រោម",f:"ដិត",g:"ទ្រេត",h:"កម្មវិធី​កែសម្រួល​អត្ថបទ​សម្បូរបែប",i:"កម្មវិធី​កែសម្រួល​អត្ថបទ​សម្បូរបែប, %0",j:"លែង​ធ្វើ​វិញ",k:"ធ្វើ​វិញ"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
